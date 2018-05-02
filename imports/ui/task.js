@@ -1,15 +1,7 @@
-import { Template } from "meteor/templating";
-import { Tasks } from "../api/tasks.js";
+import React, { Component } from "react";
 
-import './task.html';
-
-Template.task.events({
-  'click .toggle-checked'() {
-    Tasks.update(this._id, {
-      $set: { checked: !this.checked },
-    });
-  },
-  'click .delete'() {
-    Tasks.remove(this._id);
-  },
-});
+export default class Task extends Component {
+  render() {
+    return <li>{this.props.task.text}</li>;
+  }
+}
